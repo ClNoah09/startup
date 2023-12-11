@@ -22,7 +22,12 @@
     </template>
 
     <template #content>
-      <slot />
+      <div
+        id="fonds"
+        class="min-h-screen sticky bg-cover bg-[url('/public/img/challenger-se-tient-devant-illustration-effrayante-du-chateau.jpg')]"
+      >
+        <slot />
+      </div>
     </template>
 
     <template #footer>
