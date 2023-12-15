@@ -36,21 +36,21 @@ produit.value = data.value.produit;
 <template>
   <div
     v-if="produit"
-    class="max-w-xl mx-auto flex flex-col md:flex-row items-center justify-center space-x-3"
+    class="max-w-xl mx-auto flex flex-col items-center justify-center space-x-4 bg-green-800 bg-opacity-50"
   >
-    <div class="flex-1 mt-10">
-      <NuxtImg
-        :src="produit.image.url"
-        :alt="produit.nom"
-        class="w-full h-auto"
-      />
-    </div>
-    <div class="flex-1 text-center text-yellow-500">
-      <h2 class="text-4xl bg-green-800 bg-opacity-50">{{ produit.nom }}</h2>
-      <p class="text-lg bg-green-800 bg-opacity-50">
-        {{ produit.description }}
-      </p>
-      <p class="text-lg bg-green-800 bg-opacity-50">{{ produit.prix }}€</p>
+    <h2 class="text-4xl text-center text-yellow-500">{{ produit.nom }}</h2>
+    <div class="flex mt-10">
+      <div class="flex-1">
+        <NuxtImg
+          :src="produit.image.url"
+          :alt="produit.nom"
+          class="w-full h-auto"
+        />
+      </div>
+      <div class="flex-1 text-center text-yellow-500">
+        <p class="text-lg">{{ produit.description }}</p>
+        <p class="text-lg">{{ produit.prix }}€</p>
+      </div>
     </div>
   </div>
 
