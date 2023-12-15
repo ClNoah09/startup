@@ -1,12 +1,14 @@
 <script setup>
 const query = gql`
-  query produit {
-    produit(where: { slug: "$slug" }) {
+  query produit($slug: String!) {
+    produit(where: { slug: $slug }) {
+      id
       nom
       slug
       description
       createdAt
       publishedAt
+      updatedAt
       stage
       prix
       image {
@@ -20,7 +22,7 @@ const query = gql`
   }
 `;
 
-const pokemon = ref();
+const produit = ref();
 
 const route = useRoute();
 const { data } = await useAsyncQuery(query, {
@@ -28,14 +30,30 @@ const { data } = await useAsyncQuery(query, {
 });
 
 console.log(data.value);
-pokemon.value = data.value.pokemon;
+produit.value = data.value.produit;
 </script>
 
 <template>
-  <div v-if="pokemon" class="max-w-lg">
-    <NuxtImg :src="pokemon.image.url" :alt="pokemon.nom" />
-    <h2 class="text-3xl text-center">{{ pokemon.nom }}</h2>
+  <div
+    v-if="produit"
+    class="max-w-xl mx-auto flex flex-col md:flex-row items-center justify-center space-x-3"
+  >
+    <div class="flex-1 mt-10">
+      <NuxtImg
+        :src="produit.image.url"
+        :alt="produit.nom"
+        class="w-full h-auto"
+      />
+    </div>
+    <div class="flex-1 text-center text-yellow-500">
+      <h2 class="text-4xl bg-green-800 bg-opacity-50">{{ produit.nom }}</h2>
+      <p class="text-lg bg-green-800 bg-opacity-50">
+        {{ produit.description }}
+      </p>
+      <p class="text-lg bg-green-800 bg-opacity-50">{{ produit.prix }}€</p>
+    </div>
   </div>
+
   <div v-else>
     <li>Loading...</li>
   </div>

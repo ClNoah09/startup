@@ -30,34 +30,42 @@ contenueAccueil.value = data.value.page;
     "
   >
     <div class="flex flex-col items-center justify-center h-full text-white">
-      <h1 class="text-6xl font-bold mb-8">Bienvenue au Château Effrayant</h1>
+      <h1 class="text-yellow-500 text-6xl font-bold mb-8">
+        Bienvenue chez LevelLoot
+      </h1>
       <div class="flex space-x-4">
-        <a href="/services" class="bg-blue-500 text-white px-4 py-2 rounded"
+        <a
+          href="/produit"
+          class="bg-green-950 text-yellow-500 border-2 border-yellow-500 px-4 py-2 rounded-lg"
           >Services</a
         >
-        <a href="/contact" class="bg-green-500 text-white px-4 py-2 rounded"
+        <a
+          href="/contact"
+          class="bg-green-950 text-yellow-500 border-2 border-yellow-500 px-4 py-2 rounded-lg"
           >Contact</a
         >
       </div>
-      <p class="mt-8 text-lg text-center">
-        Découvrez l'atmosphère unique de notre château effrayant. Vous ne
-        trouverez rien de semblable ailleurs!
-      </p>
+      <div class="bg-green-950 bg-opacity-70">
+        <p
+          v-html="contenueAccueil.text.html"
+          class="text-yellow-500 text-stroke text-center text-lg p-4 inline-block"
+        ></p>
+      </div>
 
       <!-- Gallery of photos -->
       <div class="grid grid-cols-3 gap-4 mt-8">
         <img
-          src=""
+          src="../public/img/OIG (9).jpg"
           alt="Image 1"
           class="w-full h-auto rounded"
         />
         <img
-          src=""
+          src="../public/img/OIG.jpg"
           alt="Image 2"
           class="w-full h-auto rounded"
         />
         <img
-          src=""
+          src="../public/img/OIG (1).jpg"
           alt="Image 3"
           class="w-full h-auto rounded"
         />

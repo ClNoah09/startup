@@ -1,7 +1,7 @@
 <script setup>
 const query = gql`
   query produit {
-    produit(where: { slug: "$slug" }) {
+    produits {
       nom
       slug
       description
@@ -20,21 +20,21 @@ const query = gql`
   }
 `;
 
-const contenueProduit = ref();
+const produits = ref();
 const { data } = await useAsyncQuery(query);
 console.log(data.value);
-contenueProduit.value = data.value.produit;
+produits.value = data.value.produits;
 </script>
 
 <template>
   <ul
-    v-if="produit"
-    class="grid gap-8 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-6"
+    v-if="produits"
+    class="flex justify-center list-none mx-auto space-x-4 mt-10"
   >
     <li
       v-for="produit in produits"
       :key="produit.id"
-      class="flex flex-col items-center border-4 border-red-500 rounded-lg w-fit"
+      class="flex flex-col items-center border-4 border-yellow-500 rounded-lg w-full sm:w-48 lg:w-56 xl:w-64 2xl:w-72"
     >
       <NuxtLink
         :to="`/produit/${produit.slug}`"
@@ -43,12 +43,15 @@ contenueProduit.value = data.value.produit;
         <NuxtImg
           :src="produit.image.url"
           :alt="produit.nom"
-          class="max-w-full h-auto border-b-2 border-black hover:border-red-500 transition-transform transform-origin-center"
+          class="max-w-full h-auto border-b-2 border-black transition-transform transform-origin-center"
         />
-        <h2 class="bg-white text-2xl py-2">{{ produit.nom }}</h2>
+        <h2 class="bg-green-800 text-yellow-500 text-xl sm:text-2xl py-2">
+          {{ produit.nom }}
+        </h2>
       </NuxtLink>
     </li>
   </ul>
+
   <ul v-else>
     <li>Loading...</li>
   </ul>
