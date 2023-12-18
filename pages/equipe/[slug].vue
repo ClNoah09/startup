@@ -40,7 +40,7 @@ equipe.value = data.value.equipe;
       <h2
         class="text-3xl md:text-4xl text-center font-bold text-yellow-500 bg-green-700 p-4 rounded-lg shadow-lg"
       >
-        {{ equipe.nom }}
+        {{ equipe.nom }} ({{ equipe.pseudo }})
       </h2>
       <div
         class="flex flex-col md:flex-row items-center md:items-stretch mt-10"
