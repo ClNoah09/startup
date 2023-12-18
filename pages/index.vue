@@ -33,7 +33,7 @@ contenueAccueil.value = data.value.page;
       <h1 class="text-yellow-500 text-6xl font-bold mb-8">
         Bienvenue chez LevelLoot
       </h1>
-      <div class="flex space-x-4">
+      <div class="flex space-x-4 pb-3">
         <a
           href="/produit"
           class="bg-green-950 text-yellow-500 border-2 border-yellow-500 px-4 py-2 rounded-lg"
@@ -48,7 +48,7 @@ contenueAccueil.value = data.value.page;
       <div class="bg-green-950 bg-opacity-70">
         <p
           v-html="contenueAccueil.text.html"
-          class="text-yellow-500 text-stroke text-center text-lg p-4 inline-block"
+          class="text-yellow-500 text-stroke text-left text-lg p-4 inline-block"
         ></p>
       </div>
 

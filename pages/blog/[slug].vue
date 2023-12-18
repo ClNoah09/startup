@@ -1,16 +1,14 @@
 <script setup>
 const query = gql`
-  query produit($slug: String!) {
-    produit(where: { slug: $slug }) {
+  query blog($slug: String!) {
+    blog(where: { slug: $slug }) {
       id
-      nom
+      titre
+      contenue
       slug
-      description
       createdAt
       publishedAt
       updatedAt
-      stage
-      prix
       image {
         url(
           transformation: {
@@ -22,7 +20,7 @@ const query = gql`
   }
 `;
 
-const produit = ref();
+const blog = ref();
 
 const route = useRoute();
 const { data } = await useAsyncQuery(query, {
@@ -30,32 +28,33 @@ const { data } = await useAsyncQuery(query, {
 });
 
 console.log(data.value);
-produit.value = data.value.produit;
+blog.value = data.value.blog;
 </script>
 
 <template>
-  <div v-if="produit" class="text-white py-12">
-    <div class="max-w-4xl mx-auto flex flex-col items-center space-y-8">
+  <div v-if="blog" class="bg-gray-900 text-white py-12">
+    <div
+      class="container mx-auto flex flex-col items-center justify-center space-y-8"
+    >
       <h2
-        class="text-3xl md:text-4xl text-center font-bold text-yellow-500 bg-green-700 p-4 rounded-lg shadow-lg"
+        class="text-4xl md:text-5xl font-extrabold text-yellow-500 bg-green-700 p-6 rounded-lg shadow-lg"
       >
-        {{ produit.nom }}
+        {{ blog.titre }}
       </h2>
       <div
         class="flex flex-col md:flex-row items-center md:items-stretch mt-10"
       >
         <div class="md:flex-1">
           <NuxtImg
-            :src="produit.image.url"
-            :alt="produit.nom"
+            :src="blog.image.url"
+            :alt="blog.nom"
             class="w-full h-auto rounded-lg shadow-md"
           />
         </div>
         <div
-          class="md:flex-1 text-yellow-500 bg-green-700 p-4 rounded-lg shadow-md"
+          class="md:flex-1 text-yellow-500 bg-green-700 p-6 rounded-lg shadow-md"
         >
-          <p class="text-lg mb-4">{{ produit.description }}</p>
-          <p class="text-2xl font-bold">{{ produit.prix }}€</p>
+          <p class="text-lg">{{ blog.contenue }}</p>
         </div>
       </div>
     </div>
