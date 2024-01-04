@@ -26,7 +26,7 @@ contacts.value = data.value.contacts;
   <div
     v-for="contact in contacts"
     :key="contact.id"
-    class="bg-gray-900 text-white min-h-screen flex flex-col justify-center items-center"
+    class="bg-gray-900 text-red min-h-screen flex flex-col justify-center items-center"
   >
     <h2 class="text-4xl md:text-5xl font-extrabold text-yellow-500 mb-4">
       {{ contact.titre }}
@@ -91,8 +91,8 @@ contacts.value = data.value.contacts;
       </button>
     </form>
 
-    <p class="text-lg">{{ contact.adresse }}</p>
-    <p class="text-lg">{{ contact.email }}</p>
-    <p class="text-lg">0{{ contact.numero }}</p>
+    <p class="text-[#d6d3ae] text-lg">{{ contact.adresse }}</p>
+    <p class="text-[#d6d3ae] text-lg">{{ contact.email }}</p>
+    <p class="text-[#d6d3ae] text-lg">0{{ contact.numero }}</p>
   </div>
 </template>
