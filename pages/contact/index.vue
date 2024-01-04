@@ -36,7 +36,7 @@ contacts.value = data.value.contacts;
         <p class="text-lg">{{ contact.contenue }}</p>
       </div>
     </div>
-    <form class="max-w-md mx-auto p-4 bg-white rounded-md shadow-md">
+    <form class="max-w-xl mx-auto p-6 bg-white rounded-md shadow-md">
       <div class="mb-4">
         <label for="name" class="block text-gray-700 text-sm font-semibold mb-2"
           >Nom :</label
@@ -46,7 +46,8 @@ contacts.value = data.value.contacts;
           id="name"
           name="name"
           required
-          class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
+          class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 placeholder-gray-500"
+          placeholder="Votre nom"
         />
       </div>
 
@@ -61,7 +62,8 @@ contacts.value = data.value.contacts;
           id="email"
           name="email"
           required
-          class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
+          class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500 placeholder-gray-500"
+          placeholder="Votre adresse email"
         />
       </div>
 
@@ -76,7 +78,8 @@ contacts.value = data.value.contacts;
           name="message"
           rows="4"
           required
-          class="w-full border border-gray-300 rounded-md px-3 py-2 resize-none focus:outline-none focus:border-blue-500"
+          class="w-full border border-gray-300 rounded-md px-3 py-2 resize-none focus:outline-none focus:border-blue-500 placeholder-gray-500"
+          placeholder="Votre message"
         ></textarea>
       </div>
 
@@ -87,6 +90,7 @@ contacts.value = data.value.contacts;
         Envoyer
       </button>
     </form>
+
     <p class="text-lg">{{ contact.adresse }}</p>
     <p class="text-lg">{{ contact.email }}</p>
     <p class="text-lg">0{{ contact.numero }}</p>
